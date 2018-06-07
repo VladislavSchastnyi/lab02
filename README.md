@@ -107,6 +107,7 @@ $ gistup -m "lab${LAB_NUMBER}" # enter: yes↵ # загружаем отреда
 Reinitialized existing Git repository in /home/ubuntu/workspace/VladislavSchastnyi/workspace/reports/lab02/.git/
 [master 75301d2] Initial gistup commit.
 /home/ubuntu/.nvm/versions/node/v7.6.0/lib/node_modules/gistup/lib/gistup/unless.js:11
+```
 
 ## Links
 
