@@ -11,31 +11,31 @@
 ## Tutorial
 
 ```bash
-$ export GITHUB_USERNAME=VladislavSchastnyi
-$ export GIST_TOKEN=<сохраненный_токен>
-$ alias edit=nano
+$ export GITHUB_USERNAME=VladislavSchastnyi # присвоение переменной среды значение
+$ export GIST_TOKEN=<сохраненный_токен> # присвоение переменной среды значение
+$ alias edit=nano # создание псевдоним команды
 ```
 
 ```ShellSession
-$ mkdir -p ${GITHUB_USERNAME}/workspace
-$ cd ${GITHUB_USERNAME}/workspace
-$ pwd
+$ mkdir -p ${GITHUB_USERNAME}/workspace # создае каталога
+$ cd ${GITHUB_USERNAME}/workspace # переход в каталог
+$ pwd # вывод на экран путь в текущий каталог
 /home/ubuntu/workspace/VladislavSchastnyi/workspace
-$ cd ..
+$ cd .. # переход в "корневую" директорию
 $ pwd
 /home/ubuntu/workspace/VladislavSchastnyi
 ```
 
 ```ShellSession
-$ mkdir -p workspace/tasks/
-$ mkdir -p workspace/projects/
-$ mkdir -p workspace/reports/
-$ cd workspace
+$ mkdir -p workspace/tasks/ # создание каталога
+$ mkdir -p workspace/projects/ # создание каталога
+$ mkdir -p workspace/reports/ # создание каталога 
+$ cd workspace # изменеие текущего каталога
 ```
 
 ```ShellSession
 # Debian
-$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
+$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz # загрузка архива
 --2018-06-07 12:46:46--  https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
 Resolving nodejs.org (nodejs.org)... 104.20.22.46, 104.20.23.46, 2400:cb00:2048:1::6814:172e, ...
 Connecting to nodejs.org (nodejs.org)|104.20.22.46|:443... connected.
@@ -47,28 +47,28 @@ Saving to: ‘node-v6.11.5-linux-x64.tar.xz’
 
 2018-06-07 12:46:48 (7.76 MB/s) - ‘node-v6.11.5-linux-x64.tar.xz’ saved [9356460/9356460]
 
-$ tar -xf node-v6.11.5-linux-x64.tar.xz
-$ rm -rf node-v6.11.5-linux-x64.tar.xz
-$ mv node-v6.11.5-linux-x64 node
+$ tar -xf node-v6.11.5-linux-x64.tar.xz # разархивирование
+$ rm -rf node-v6.11.5-linux-x64.tar.xz # удаление архива
+$ mv node-v6.11.5-linux-x64 node # переименование файла
 ```
 
 ```ShellSession
-$ ls node/bin 
+$ ls node/bin # вывод на экран содержимого 
 node*  npm@
-$ echo ${PATH}
+$ echo ${PATH} # отображение содержимого переменной PATH
 /home/ubuntu/.nvm/versions/node/v7.6.0/bin:/home/ubuntu/bin:/usr/local/rvm/gems/ruby-2.4.0/bin:/usr/local/rvm/gems/ruby-2.4.0@global/bin:/usr/local/rvm/rubies/ruby-2.4.0/bin:/home/ubuntu/bin:/opt/pyenv/shims:/opt/pyenv/bin:/home/ubuntu/.cs50/bin:/opt/cs50/bin:/mnt/shared/bin:/home/ubuntu/workspace/node_modules/.bin:/home/ubuntu/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/mnt/shared/sbin:/opt/gitl:/opt/go/bin:/mnt/shared/c9/app.nw/bin:/home/ubuntu/.local/bin:/usr/local/rvm/bin
-$ export PATH=${PATH}:`pwd`/node/bin
-$ echo ${PATH}
+$ export PATH=${PATH}:`pwd`/node/bin # присвоение переменной среды PATH новое значение 
+$ echo ${PATH} # отображает содержимое переменной PATH
 /home/ubuntu/.nvm/versions/node/v7.6.0/bin:/home/ubuntu/bin:/usr/local/rvm/gems/ruby-2.4.0/bin:/usr/local/rvm/gems/ruby-2.4.0@global/bin:/usr/local/rvm/rubies/ruby-2.4.0/bin:/home/ubuntu/bin:/opt/pyenv/shims:/opt/pyenv/bin:/home/ubuntu/.cs50/bin:/opt/cs50/bin:/mnt/shared/bin:/home/ubuntu/workspace/node_modules/.bin:/home/ubuntu/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/mnt/shared/sbin:/opt/gitl:/opt/go/bin:/mnt/shared/c9/app.nw/bin:/home/ubuntu/.local/bin:/usr/local/rvm/bin:/home/ubuntu/workspace/VladislavSchastnyi/workspace/node/bin
 $ mkdir scripts
-$ cat > scripts/activate<<EOF
+$ cat > scripts/activate<<EOF # копирование в файл содержимого переменной PATH c измененным значением
 export PATH=\${PATH}:`pwd`/node/bin
 EOF
-$ source scripts/activate
+$ source scripts/activate # чтение и выполнение команды из файла в текущей среде
 ```
 
 ```ShellSession
-$ npm install -g gistup
+$ npm install -g gistup # установка gistup
 /home/ubuntu/.nvm/versions/node/v7.6.0/bin/gistup -> /home/ubuntu/.nvm/versions/node/v7.6.0/lib/node_modules/gistup/bin/gistup
 /home/ubuntu/.nvm/versions/node/v7.6.0/bin/gistup-open -> /home/ubuntu/.nvm/versions/node/v7.6.0/lib/node_modules/gistup/bin/gistup-open
 /home/ubuntu/.nvm/versions/node/v7.6.0/bin/gistup-rename -> /home/ubuntu/.nvm/versions/node/v7.6.0/lib/node_modules/gistup/bin/gistup-rename
@@ -78,12 +78,12 @@ $ npm install -g gistup
   │ └── wordwrap@0.0.3 
   └── queue-async@1.2.1 
 
-$ ls node/bin
+$ ls node/bin # вывод на экран содержимого
 node*  npm@
 ```
 
 ```ShellSession
-$ cat > ~/.gistup.json <<EOF
+$ cat > ~/.gistup.json <<EOF # запись в файл токен
 {
   "token": "${GIST_TOKEN}"
 }
@@ -93,17 +93,17 @@ EOF
 ## Report
 
 ```ShellSession
-$ export LAB_NUMBER=02
-$ git clone https://github.com/tp-labs/lab${LAB_NUMBER} tasks/lab${LAB_NUMBER}
+$ export LAB_NUMBER=02 # присвоение переменной среды значение
+$ git clone https://github.com/tp-labs/lab${LAB_NUMBER} tasks/lab${LAB_NUMBER} # копируем репозиторий в директорию
 Cloning into 'tasks/lab02'...
 remote: Counting objects: 37, done.
 remote: Total 37 (delta 0), reused 0 (delta 0), pack-reused 37
 Unpacking objects: 100% (37/37), done.
-$ mkdir reports/lab${LAB_NUMBER}
-$ cp tasks/lab${LAB_NUMBER}/README.md reports/lab${LAB_NUMBER}/REPORT.md
-$ cd reports/lab${LAB_NUMBER}
-$ edit REPORT.md
-$ gistup -m "lab${LAB_NUMBER}" # enter: yes↵
+$ mkdir reports/lab${LAB_NUMBER} # создание директории
+$ cp tasks/lab${LAB_NUMBER}/README.md reports/lab${LAB_NUMBER}/REPORT.md # копируем содержимое файла
+$ cd reports/lab${LAB_NUMBER} # изменяем текущую директорию
+$ edit REPORT.md # открываем файл на редактирование
+$ gistup -m "lab${LAB_NUMBER}" # enter: yes↵ # загружаем отредактированный файл на GitHub
 Initialized empty Git repository in /home/ubuntu/workspace/Avsyankaa/workspace/reports/lab02/.git/
 [master (root-commit) ddff94f] Initial gistup commit.
  1 file changed, 125 insertions(+)
