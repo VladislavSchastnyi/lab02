@@ -104,17 +104,9 @@ $ cp tasks/lab${LAB_NUMBER}/README.md reports/lab${LAB_NUMBER}/REPORT.md # ко�
 $ cd reports/lab${LAB_NUMBER} # изменяем текущую директорию
 $ edit REPORT.md # открываем файл на редактирование
 $ gistup -m "lab${LAB_NUMBER}" # enter: yes↵ # загружаем отредактированный файл на GitHub
-Initialized empty Git repository in /home/ubuntu/workspace/Avsyankaa/workspace/reports/lab02/.git/
-[master (root-commit) ddff94f] Initial gistup commit.
- 1 file changed, 125 insertions(+)
- create mode 100644 REPORT.md
-gist fc20dba3314b250a8be730c14173c077 created!
-https://gist.github.com/fc20dba3314b250a8be730c14173c077
-Enter passphrase for key '/home/ubuntu/.ssh/id_rsa': 
-To gist.github.com:fc20dba3314b250a8be730c14173c077.git
- + b2d6343...ddff94f master -> master (forced update)
-Branch master set up to track remote branch master from origin.
-```
+Reinitialized existing Git repository in /home/ubuntu/workspace/VladislavSchastnyi/workspace/reports/lab02/.git/
+[master 75301d2] Initial gistup commit.
+/home/ubuntu/.nvm/versions/node/v7.6.0/lib/node_modules/gistup/lib/gistup/unless.js:11
 
 ## Links
 
